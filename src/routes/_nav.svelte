@@ -20,8 +20,10 @@
   }
 
   a {
-    background-color: #f5f5f5;
+    background-color: #a0a;
     border-radius: 5px;
+    color: #fff;
+
     padding: 5px 10px;
 
     text-decoration: none;
