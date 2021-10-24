@@ -68,7 +68,7 @@
 
     img {
       box-shadow: 5px 5px 15px #0003;
-      border-radius: 20px;
+      border-radius: 10px;
       max-width: 100%;
     }
 

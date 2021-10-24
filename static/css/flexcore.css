@@ -86,12 +86,12 @@ body {
     max-width: 768px; } }
 
 @media (min-width: 992px) {
-  .container-wide {
+  .container, .container-wide {
     max-width: 992px; } }
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
   .container-wide {
-    max-width: 1400px; } }
+    max-width: 1300px; } }
 
 .flex-gap {
   column-gap: 20px;
