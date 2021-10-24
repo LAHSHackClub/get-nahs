@@ -3,7 +3,7 @@
 
 </script>
 
-<nav>
+<nav class="container-wide">
   <h2>
     <img src="/img/logo.png" alt="NAHS">
     <span>LAHS x NAHS</span>
@@ -23,8 +23,6 @@
     align-items: center;
     column-gap: 15px;
     height: 50px;
-    margin: 10px auto;
-    max-width: 1400px;
   }
 
   h2 {
