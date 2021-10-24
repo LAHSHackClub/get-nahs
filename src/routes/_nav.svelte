@@ -6,7 +6,7 @@
 <nav>
   <h2>
     <img src="/img/logo.png" alt="NAHS">
-    <span>LAHS National Art Honors Society</span>
+    <span>LAHS x NAHS</span>
   </h2>
   <span class="spacer"></span>
   <a href="/">Home</a>
@@ -23,7 +23,8 @@
     align-items: center;
     column-gap: 15px;
     height: 50px;
-    margin: 10px 30px;
+    margin: 10px auto;
+    max-width: 1400px;
   }
 
   h2 {
