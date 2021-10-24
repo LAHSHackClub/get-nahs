@@ -4,7 +4,12 @@
 </script>
 
 <nav>
-  <a href="">Home</a>
+  <h2>
+    <img src="/img/logo.png" alt="NAHS">
+    <span>LAHS National Art Honors Society</span>
+  </h2>
+  <span class="spacer"></span>
+  <a href="/">Home</a>
   <a href="">Activities</a>
   <a href="">Calendar</a>
   <a href="">Contact</a>
@@ -16,9 +21,24 @@
   nav {
     display: flex;
     align-items: center;
-    column-gap: 10px;
+    column-gap: 15px;
     height: 50px;
     margin: 10px 30px;
+  }
+
+  h2 {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    img {
+      height: 30px;
+    }
+  }
+
+  .spacer {
+    flex: 1;
   }
 
   a {
@@ -32,6 +52,6 @@
   }
 
   a.focus {
-    background-color: #d08;
+    background-color: #e08;
   }
 </style>
