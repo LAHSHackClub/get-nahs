@@ -26,8 +26,8 @@
 <style lang="scss">
   .hero {
     background-color: #a0a;
-    height: 450px;
-    padding-top: 80px;
+    height: 400px;
+    padding-top: 60px;
 
     position: relative;
 
@@ -49,7 +49,7 @@
     }
 
     h1 {
-      font-size: 7rem;
+      font-size: 6rem;
       font-family: serenity, sans-serif;
       margin: 0;
       user-select: none;
@@ -59,7 +59,7 @@
   }
 
   .hero-spacer {
-    height: 20vw;
+    height: 22vw;
   }
 
   .content {
@@ -74,11 +74,15 @@
 
     figure {
       margin: 0;
+      position: relative;
     }
 
     figcaption {
       font-size: 1rem;
       opacity: 0.8;
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
     }
 
     h2 {
