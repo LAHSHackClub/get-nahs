@@ -1,6 +1,7 @@
 
 <section class="hero">
-  <img src="/img/wave.svg" alt="Wave" aria-hidden="true">
+  <img class="wave" src="/img/wave.svg" alt="Wave" aria-hidden="true">
+  <img class="comp" src="/img/3dcomp.png" alt="3D Objects" aria-hidden="true">
   <div class="hero-content container-wide">
     <h1>LAHS<br>National Art<br>Honors Society</h1>
   </div>
@@ -36,6 +37,13 @@
       top: calc(100% - 5px);
       left: 0;
       right: 0;
+    }
+
+    .comp {
+      left: unset;
+      margin-right: 200px;
+      top: 100px;
+      width: 530px;
     }
 
     .hero-content {
