@@ -21,9 +21,9 @@
     font-family: serenity, sans-serif;
     position: relative;
   }
-  
+
   .content {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 200px);
   }
 
   h1, h2, h3, h4, a {
