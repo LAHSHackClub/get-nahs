@@ -24,6 +24,7 @@
   </div>
   <div class="container-wide">
     <p><b>&copy; 2021 LAHS National Art Honors Society</b> // Made with ❤️ by LAHS Hack Club</p>
+    <p><a href="">Officer Login</a></p>
   </div>
 </footer>
 

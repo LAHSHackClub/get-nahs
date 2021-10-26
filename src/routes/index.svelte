@@ -7,7 +7,7 @@
   </div>
 </section>
 <div class="hero-spacer" />
-<section class="content container-wide flex-column flex-gap">
+<section class="content container-wide flex-column">
   <div class="flex-smart flex-gap align-center">
     <figure class="flex">
       <img src="/img/group.jpg" alt="NAHS Members">
@@ -18,9 +18,15 @@
       <p>To many, creating art is an important form of expression. However, in Silicon Valley, art is often shadowed by STEM and other academic subjects. Our goal is not only to gain knowledge and create fun projects, but also to make a positive impact in the community through these projects and spread the importance of art! You don't have to be the best artist. We're looking for people who are hardworking and passionate!</p>
     </div>
   </div>
-  <div>
-    <h2>Artist Spotlight</h2>
-    <p>The Artist Spotlight will be used to highlight the young artists at LAHS and their art work! It will featured on the NAHS Instagram and Website, daily announcement, and our advisor's Canvas announcements.  The first feature will start on 10/2 and continue biweekly throughout the year.</p>
+  <div class="flex-column">
+    <div>
+      <h2>Artist Spotlight</h2>
+      <p>The Artist Spotlight will be used to highlight the young artists at LAHS and their art work! It will featured on the NAHS Instagram and Website, daily announcement, and our advisor's Canvas announcements.  The first feature will start on 10/2 and continue biweekly throughout the year.</p>  
+    </div>
+    <div class="flex-smart flex-gap">
+      <span><img class="flex" src="/spotlight/1.png" alt="Artist Spotlight"></span>
+      <span><img class="flex" src="/spotlight/2.png" alt="Artist Spotlight"></span>
+    </div>
   </div>
 </section>
 
@@ -43,7 +49,7 @@
       left: unset;
       margin-right: 200px;
       top: 100px;
-      width: 530px;
+      width: 510px;
     }
 
     .hero-content {
@@ -73,6 +79,8 @@
   .content {
     font-size: 1.4em;
     line-height: 1.5;
+    row-gap: 15vh;
+    padding-bottom: 15vh;
 
     img {
       box-shadow: 5px 5px 15px #0003;
