@@ -5,10 +5,10 @@
 </script>
 
 <main>
-  <header>
-    <Nav />
-  </header>
-  <slot></slot>
+  <Nav />
+  <div class="content">
+    <slot></slot>
+  </div>
   <Footer />
 </main>
 
@@ -28,6 +28,10 @@
     left: 0;
     right: 0;
     z-index: 2;
+  }
+
+  .content {
+    min-height: calc(100vh - 100px);
   }
 
   h1, h2, h3, h4, a {
