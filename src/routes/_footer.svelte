@@ -7,6 +7,7 @@
   <div class="container-wide flex-smart flex-list">
     <section class="flex">
       <h3>Activities</h3>
+      <p><a href="/activities">All Activities</a></p>
       <p><a href="">Bear Paintings</a></p>
       <p><a href="">Memory Project</a></p>
       <p><a href="">Video Tutorials</a></p>
@@ -14,12 +15,12 @@
     <section class="flex">
       <h3>Navigate</h3>
       <p><a href="">Art Show</a></p>
-      <p><a href="">Calendar</a></p>
+      <p><a href="/calendar">Calendar</a></p>
     </section>
     <section class="flex">
-      <h3>Contact</h3>
-      <p><a href="">Join NAHS</a></p>
-      <p><a href="">Members</a></p>
+      <h3>Club</h3>
+      <p><a href="/join">Join NAHS</a></p>
+      <p><a href="/contact">Members</a></p>
     </section>
   </div>
   <div class="container-wide">
