@@ -1,6 +1,7 @@
 
 <script>
   import Nav from "./_nav.svelte";
+  import Footer from "./_footer.svelte";
 </script>
 
 <main>
@@ -8,6 +9,7 @@
     <Nav />
   </header>
   <slot></slot>
+  <Footer />
 </main>
 
 <style lang="scss" global>
