@@ -34,7 +34,6 @@
   .hero {
     background-color: #a0a;
     height: 400px;
-    padding-top: 60px;
 
     position: relative;
 
@@ -48,13 +47,13 @@
     .comp {
       left: unset;
       margin-right: 200px;
-      top: 100px;
+      top: 20px;
       width: 510px;
     }
 
     .hero-content {
       position: absolute;
-      top: 30%;
+      top: 15%;
       left: 0;
       right: 0;
 
