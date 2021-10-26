@@ -31,7 +31,7 @@
     column-gap: 15px;
 
     img {
-      height: 30px;
+      height: 40px;
     }
   }
 
