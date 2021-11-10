@@ -1,9 +1,9 @@
 
 <section class="hero">
   <img class="wave" src="/img/wave.svg" alt="Wave" aria-hidden="true">
-  <img class="comp" src="/img/3dcomp.png" alt="3D Objects" aria-hidden="true">
   <div class="hero-content container-wide">
     <h1>LAHS<br>National Art<br>Honors Society</h1>
+    <img class="comp" src="/img/3dcomp.png" alt="3D Objects" aria-hidden="true">
   </div>
 </section>
 <div class="hero-spacer" />
@@ -37,6 +37,10 @@
 
     position: relative;
 
+    @media (max-width: 512px) {
+      height: 250px;
+    }
+
     img {
       position: absolute;
       top: calc(100% - 5px);
@@ -46,13 +50,20 @@
 
     .comp {
       left: unset;
-      margin-right: 200px;
       top: 20px;
-      width: 510px;
+      width: 400px;
+      
+      @media (max-width: 992px) {
+        display: none;
+      }
+
+      @media (min-width: 1300px) {
+        width: 510px;
+      }
     }
 
     .hero-content {
-      position: absolute;
+      position: relative;
       top: 15%;
       left: 0;
       right: 0;
@@ -68,6 +79,14 @@
       user-select: none;
       -moz-user-select: none;
       -webkit-user-select: none;
+
+      @media (max-width: 768px) {
+        font-size: 5rem;
+      }
+
+      @media (max-width: 512px) {
+        font-size: 3.2rem;
+      }
     }
   }
 
