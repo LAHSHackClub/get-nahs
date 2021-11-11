@@ -14,7 +14,7 @@
     <a href="/calendar">Calendar</a>
     <a href="/contact">Contact</a>
     <a href="/join">Join NAHS</a>
-    <a class="focus" href="">Art Show</a>
+    <a class="focus" href="/show">Art Show</a>
   </nav>
 </header>
 
