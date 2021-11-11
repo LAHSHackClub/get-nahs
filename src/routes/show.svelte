@@ -1,6 +1,6 @@
 
 <script lang="ts">
-  import ArtShowThumbnail from '$lib/ArtShowThumbnail.svelte';
+  import ArtShowThumbnail from '../components/ArtShowThumbnail.svelte';
   import { onMount } from 'svelte';
 
   let items = [];
