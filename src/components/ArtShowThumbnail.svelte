@@ -14,34 +14,38 @@
 <style lang="scss">
   figure {
     background-color: #f5f5f5;
-    border-radius: 15px;
+    border: 1px solid #444;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     margin: 0;
-    width: 230px;
+    width: 270px;
 
     text-align: right;
     overflow: hidden;
 
     span {
-      background-color: #dfcedf;
+      background-color: #111;
       flex: 1 1;
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 300px;
+      min-height: 300px;
     }
 
     img {
-      border-radius: 5px;
       max-height: 100%;
       max-width: 100%;
     }
 
     figcaption {
-      background-image: linear-gradient(45deg, #eef, #ede 30%, #fee);
-      border-radius: 10px;
+      background-image: linear-gradient(45deg, #333, #222 30%, #2a2a2a 70%);
+      border-top: #444 solid 1px;
+      border-top-left-radius: 10px;
+      color: #fff;
       margin-top: -10px;
-      padding: 15px;
+      padding: 10px;
       padding-bottom: 15px;
     }
   }
