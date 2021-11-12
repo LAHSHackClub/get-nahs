@@ -1,15 +1,18 @@
 
 <script lang="ts">
   export let item: any = {};
+  export let id: number = 0;
   $: studentName = item["Student Name"].content;
   $: studentClass = item["Art Class"].name;
   $: studentGrade = item["Grade Level"].name;
 </script>
 
-<figure class="thumbnail">
-  <span><img src="{item["Artwork (File)"].url}" alt="{studentName}'s Artwork" /></span>
-  <figcaption>{studentName}<br>{studentClass}<br>{studentGrade}th Grade</figcaption>
-</figure>
+<a href="/show/{id}">
+  <figure class="thumbnail">
+    <span><img src="{item["Artwork (File)"].url}" alt="{studentName}'s Artwork" /></span>
+    <figcaption>{studentName}<br>{studentClass}<br>{studentGrade}th Grade</figcaption>
+  </figure>
+</a>
 
 <style lang="scss">
   figure {

@@ -29,7 +29,7 @@
     </div>
     <div class="container-wide flex-row flex-wrap">
       {#each items.filter(i => i["Art Class"].name === c) as item}
-        <ArtShowThumbnail item="{item}" />
+        <ArtShowThumbnail item="{item}" id="{items.indexOf(item)}" />
       {/each}
     </div>
   {/each}
