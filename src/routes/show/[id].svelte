@@ -7,7 +7,7 @@
 		if (res.ok) return {
       props: {
         id: page.params.id,
-        items: await res.json()
+        item: (await res.json())[page.params.id]
       }
     };
 
@@ -20,14 +20,14 @@
 
 <script lang="ts">
   export let id: number;
-  export let items = [];
+  export let item = {};
 </script>
 
 <section class="gallery">
-  <div class="flex-smart gallery-item">
-    <img src="{items[id]["Artwork (File)"].url}" alt="">
-    <div>
-
+  <div class="gallery-item">
+    <img src="{item["Artwork (File)"].url}" alt="">
+    <div class="desc">
+      <h1>Description</h1>
     </div>
   </div>
 </section>
@@ -35,19 +35,29 @@
 <style lang="scss">
   .gallery {
     background-color: #000;
-    display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
   }
 
   .gallery-item {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    max-height: 100vh;
 
     img {
-      display: block;
+      flex: 1 1;
+      max-height: 100vh;
+      object-fit: contain;
+    }
+
+    .desc {
+      color: #fff;
+      display: inline-flex;
+      width: 400px;
+      height: 100vh;
     }
   }
 </style>
