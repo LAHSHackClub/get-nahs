@@ -1,7 +1,23 @@
 
+<script lang="ts" context="module">
+  export async function load({ fetch }) {
+		const url = `https://db.lahs.club/cache/23238e8d7e984544b511281ebac57fac.json`;
+		const res = await fetch(url);
+
+		if (res.ok) return { props: { spotlight: await res.json() } };
+
+		return {
+			status: res.status,
+			error: new Error(`Could not load ${url}`)
+		};
+	}
+</script>
+
 <script lang="ts">
   import About from "../components/About.svelte";
   import ArtistSpotlight from "../components/ArtistSpotlight.svelte";
+
+  export let spotlight: any[];
 </script>
 
 <section class="hero">
@@ -14,7 +30,7 @@
 <div class="hero-spacer" />
 <section class="content container-wide flex-column">
   <About />
-  <ArtistSpotlight />
+  <ArtistSpotlight items="{spotlight}" />
 </section>
 
 <style lang="scss">

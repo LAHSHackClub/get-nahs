@@ -1,6 +1,8 @@
 
 <script lang="ts">
   import ContentSection from "$lib/ContentSection.svelte";
+
+  export let items: any[];
 </script>
 
 <ContentSection>
@@ -10,8 +12,9 @@
       <p>The Artist Spotlight will be used to highlight the young artists at LAHS and their art work! It will featured on the NAHS Instagram and Website, daily announcement, and our advisor's Canvas announcements.  The first feature will start on 10/2 and continue biweekly throughout the year.</p>  
     </div>
     <div class="flex-smart flex-gap spotlight">
-      <span><img class="flex" src="/spotlight/1.png" alt="Artist Spotlight"></span>
-      <span><img class="flex" src="/spotlight/2.png" alt="Artist Spotlight"></span>
+      {#each items as item}
+        <span><img class="flex" src="{item["Artist Spotlight"].url}" alt="Artist Spotlight"></span>
+      {/each}
     </div>
   </div>
 </ContentSection>
