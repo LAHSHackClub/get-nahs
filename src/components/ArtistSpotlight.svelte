@@ -13,7 +13,7 @@
     </div>
     <div class="flex-smart flex-gap spotlight">
       {#each items as item}
-        <span><img class="flex" src="{item["Artist Spotlight"].url}" alt="Artist Spotlight"></span>
+        <span><img class="flex" src="{item["Artist Spotlight"][0].url}" alt="Artist Spotlight"></span>
       {/each}
     </div>
   </div>
