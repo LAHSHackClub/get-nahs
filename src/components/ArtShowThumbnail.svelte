@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    width: 270px;
+    width: 250px;
 
     text-align: right;
     overflow: hidden;

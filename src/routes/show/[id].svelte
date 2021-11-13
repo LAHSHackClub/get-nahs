@@ -85,6 +85,7 @@
 
     .desc {
       background-color: #111;
+      border-top-left-radius: 15px;
       color: #fff;
       height: 100vh;
       width: 200px;
@@ -92,7 +93,7 @@
       text-align: right;
 
       h1 a {
-        color: #777;
+        color: #aaa;
         text-decoration: none;
         font-size: 1.4rem;
       }
