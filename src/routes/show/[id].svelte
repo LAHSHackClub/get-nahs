@@ -8,7 +8,7 @@
 		if (res.ok) return {
       props: {
         id: parseInt(page.params.id),
-        item: j[page.params.id],
+        items: j,
         totalCount: j.length
       }
     };
@@ -21,17 +21,24 @@
 </script>
 
 <script lang="ts">
+  import { onDestroy } from 'svelte';
   export let id: number;
   export let totalCount: number;
-  export let item = {};
-  $: studentName = item["Student Name"].content;
-  $: studentClass = item["Art Class"].name;
-  $: studentGrade = item["Grade Level"].name;
+  export let items = [];
+  $: studentName = items[id]["Student Name"][0].content;
+  $: studentClass = items[id]["Art Class"].name;
+  $: studentGrade = items[id]["Grade Level"].name;
+
+  let autoplay = false;
+  const int = setInterval(() => {
+    if (autoplay) id = (id + 1) % totalCount;
+  }, 8000);
+  onDestroy(() => clearInterval(int));
 </script>
 
 <section class="gallery">
   <div class="gallery-item">
-    <img src="{item["Artwork (File)"].url}" alt="">
+    <img on:click="{()=>{id=(id+1)%totalCount}}" src="{items[id]["Artwork (File)"][0].url}" alt="">
     <div class="desc flex-column">
       <h1><a href="/show">&lt; 2021 Art Show</a></h1>
       <h2>{studentName}</h2>
@@ -39,11 +46,12 @@
       <span class="spacer"></span>
       <p class="caption">{id+1}/{totalCount}</p>
       <div class="controls flex-row justify-end">
+        <button class:active="{autoplay}" on:click="{()=>{autoplay=!autoplay}}" title="Autoplay">P</button>
         {#if !(id <= 0)}
-          <a href="/show/{id - 1}" class="button">&lt;</a>
+          <button on:click="{()=>{id-=1}}" class="button" title="Back">&lt;</button>
         {/if}
         {#if !(id >= totalCount - 1)}
-          <a href="/show/{id + 1}" class="button">&gt;</a>
+          <button on:click="{()=>{id+=1}}" class="button" title="Forward">&gt;</button>
         {/if}
       </div>
     </div>
@@ -68,8 +76,9 @@
     font-size: 1.4em;
 
     img {
+      cursor: pointer;
       flex: 1 1;
-      max-width: calc(100vw - 300px);
+      max-width: calc(100vw - 280px);
       max-height: 100vh;
       object-fit: contain;
     }
@@ -84,7 +93,7 @@
 
       h1 a {
         color: #777;
-        text-decoration-color: #333;
+        text-decoration: none;
         font-size: 1.4rem;
       }
       h1, h2 {
@@ -106,8 +115,9 @@
         column-gap: 10px;
         margin-bottom: 30px;
       }
-      .controls a {
+      .controls button {
         background-color: #333;
+        border: none;
         border-radius: 5px;
         color: #aaa;
         display: grid;
@@ -115,9 +125,18 @@
         font-family: inherit;
         font-weight: bold;
         font-size: 1.4rem;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         text-decoration: none;
+
+        &:hover {
+          background-color: #444;
+        }
+
+        &.active {
+          background-color: #f44;
+          color: #fff;
+        }
       }
     }
   }
