@@ -36,7 +36,7 @@
 <style lang="scss">
   .hero {
     background-color: #a0a;
-    height: 400px;
+    height: 350px;
 
     position: relative;
 
@@ -47,13 +47,14 @@
     img {
       position: absolute;
       top: calc(100% - 5px);
-      left: 0;
-      right: 0;
+      left: -5px;
+      right: -5px;
+      width: calc(100vw + 5px);
     }
 
     .comp {
       left: unset;
-      top: 20px;
+      top: 0;
       width: 400px;
       
       @media (max-width: 992px) {
@@ -61,7 +62,7 @@
       }
 
       @media (min-width: 1300px) {
-        width: 510px;
+        width: 480px;
       }
     }
 
