@@ -18,12 +18,15 @@
   }
 
   main {
+    background-color: #707;
+    min-height: 100vh;
     font-family: serenity, sans-serif;
     position: relative;
   }
 
   .content {
-    min-height: calc(100vh - 200px);
+    background-color: #fff;
+    min-height: 30vh;
   }
 
   h1, h2, h3, h4, a {
