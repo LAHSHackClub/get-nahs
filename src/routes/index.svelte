@@ -30,7 +30,7 @@
 <div class="hero-spacer" />
 <section class="content container-wide flex-column">
   <About />
-  <ArtistSpotlight items="{spotlight}" />
+  <ArtistSpotlight items="{spotlight.slice(0, 5)}" />
 </section>
 
 <style lang="scss">
