@@ -1,6 +1,7 @@
 
 <script lang="ts">
   import ArtShowThumbnail from '../../components/ArtShowThumbnail.svelte';
+  import Content from '../../lib/Content.svelte';
   import { onMount } from 'svelte';
 
   let items = [];
@@ -13,45 +14,35 @@
   });
 </script>
 
-<section class="show">
-  <div class="container-wide flex-smart">
-    <div class="flex">
-      <h1>2021 Art Show</h1>
-      <p>The 2021 Art Show highlights the talent of LAHS. Students submit artworks from a variety of disciplines, mediums, and class levels. Click or tap on any artwork to enter the gallery view, and scroll to navigate.</p>
+<Content>
+  <section class="show">
+    <div class="container-wide flex-smart">
+      <div class="flex">
+        <h1>2021 Art Show</h1>
+        <p>The 2021 Art Show highlights the talent of LAHS. Students submit artworks from a variety of disciplines, mediums, and class levels. Click or tap on any artwork to enter the gallery view, and scroll to navigate.</p>
+      </div>
+      <div class="flex">
+  
+      </div>
     </div>
-    <div class="flex">
-
-    </div>
-  </div>
-  {#each uniqueClasses as c}
-    <div class="container-wide">
-      <h2>{c}</h2>
-    </div>
-    <div class="container-wide flex-row flex-wrap">
-      {#each items.filter(i => i["Art Class"].name === c) as item}
-        <ArtShowThumbnail item="{item}" id="{items.indexOf(item)}" />
-      {/each}
-    </div>
-  {/each}
-</section>
+    {#each uniqueClasses as c}
+      <div class="container-wide">
+        <h2>{c}</h2>
+      </div>
+      <div class="container-wide flex-row flex-wrap">
+        {#each items.filter(i => i["Art Class"].name === c) as item}
+          <ArtShowThumbnail item="{item}" id="{items.indexOf(item)}" />
+        {/each}
+      </div>
+    {/each}
+  </section>
+</Content>
 
 <style lang="scss">
   .show {
     background-color: #000;
     color: #fff;
     padding-bottom: 15vh;
-
-    h1 {
-      font-size: 5rem;
-    }
-
-    h2 {
-      font-size: 3rem;
-    }
-
-    p {
-      font-size: 1.4rem;
-    }
 
     > div {
       row-gap: 50px;
