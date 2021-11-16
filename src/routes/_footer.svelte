@@ -13,14 +13,16 @@
       <p><a href="">Video Tutorials</a></p>
     </section>
     <section class="flex">
-      <h3>Navigate</h3>
-      <p><a href="">Art Show</a></p>
+      <h3>Club</h3>
+      <p><a href="/show">Art Show</a></p>
       <p><a href="/calendar">Calendar</a></p>
+      <p><a href="/contact">Contact</a></p>
+      <p><a href="/join">Join NAHS</a></p>
     </section>
     <section class="flex">
-      <h3>Club</h3>
-      <p><a href="/join">Join NAHS</a></p>
-      <p><a href="/contact">Members</a></p>
+      <h3>Socials</h3>
+      <p><a href="https://www.instagram.com/nahs_losaltoshigh/" target="_blank">Instagram</a></p>
+      <p><a href="https://sites.google.com/view/losaltosnahs/home" target="_blank">Legacy Site</a></p>
     </section>
   </div>
   <div class="container-wide">
