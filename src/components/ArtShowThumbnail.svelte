@@ -10,7 +10,9 @@
 <a href="/show/{id}">
   <figure class="thumbnail">
     <span><img src="{item["Artwork (File)"][0].url}" alt="{studentName}'s Artwork" /></span>
-    <figcaption>{studentName}<br>{studentClass}<br>{studentGrade}th Grade</figcaption>
+    <figcaption>
+      <b>{studentName}</b><br>{studentGrade}th Grade<br>
+    </figcaption>
   </figure>
 </a>
 
@@ -21,8 +23,8 @@
   
   figure {
     background-color: #f5f5f5;
-    border: 1px solid #444;
-    border-radius: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -32,7 +34,7 @@
     overflow: hidden;
 
     span {
-      background-color: #111;
+      background-color: #000;
       flex: 1 1;
       display: flex;
       align-items: center;
@@ -47,13 +49,18 @@
     }
 
     figcaption {
-      background-image: linear-gradient(45deg, #333, #222 30%, #2a2a2a 70%);
-      border-top: #444 solid 1px;
+      background-color: #000;
+      border-top: #333 solid 1px;
       border-top-left-radius: 10px;
       color: #fff;
+      line-height: 1.5;
       margin-top: -10px;
       padding: 10px;
       padding-bottom: 15px;
+
+      b {
+        font-size: 1.4rem;
+      }
     }
   }
 </style>
