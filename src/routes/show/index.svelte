@@ -16,15 +16,16 @@
 
 <Content>
   <section class="show">
-    <div class="container-wide flex-smart hero">
+    <div class="container-wide hero">
       <div class="flex">
         <h1><span>2021</span> Art Show</h1>
         <h3 class="styled">Presented by <b>National Art Honors Society</b></h3>
         <p>The 2021 Art Show highlights the talent of LAHS. Students submit artworks from a variety of disciplines, mediums, and class levels. Click or tap on any artwork to enter the gallery view, and scroll to navigate.</p>
       </div>
       <div class="cta">
-        <a href="/show/0"><span>View Gallery</span></a>
+        <a href="/show/0"><span>View Gallery &gt;</span></a>
       </div>
+      <div class="cta-mobile"><a href="/show/0">View Gallery &gt;</a></div>
     </div>
     {#each uniqueClasses as c}
       <div class="container-wide">
@@ -51,13 +52,24 @@
     }
 
     .hero {
+      display: flex;
+      flex-direction: column;
       padding-bottom: 50px;
+
+      @media (min-width: 992px) {
+        flex-direction: row;
+      }
     }
 
     h1 {
+      line-height: 0.9;
       font-size: 8rem;
       margin-top: 50px;
-      margin-bottom: 0;
+      margin-bottom: 20px;
+
+      @media (max-width: 1300px) {
+        font-size: 5rem;
+      }
 
       span {
         background-image: linear-gradient(45deg, #f09, #c0f, #0af, #0fa);
@@ -88,6 +100,28 @@
       font-weight: 300;
     }
 
+
+    .cta-mobile {
+      display: none;
+    }
+    .cta-mobile a {
+      background-image: linear-gradient(45deg, #f09, #c0f, #0af, #0fa);
+      background-repeat: repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    @media (max-width: 992px) {
+      .cta {
+        display: none !important;
+      }
+      .cta-mobile {
+        display: grid;
+        place-items: center;
+      }
+    }
     .cta, .cta a, .cta a span {
       display: grid;
       place-items: center;
