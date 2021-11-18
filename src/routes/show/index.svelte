@@ -26,12 +26,6 @@
         <a href="/show/0"><span>View Gallery</span></a>
       </div>
     </div>
-    <div class="scroll-prompt">
-      <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mouse" viewBox="0 0 16 16">
-        <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3zm4 8a4 4 0 0 1-8 0V5a4 4 0 1 1 8 0v6zM8 0a5 5 0 0 0-5 5v6a5 5 0 0 0 10 0V5a5 5 0 0 0-5-5z"/>
-      </svg></span>
-      <span>Scroll Down</span>
-    </div>
     {#each uniqueClasses as c}
       <div class="container-wide">
         <h2>{c}</h2>
@@ -57,11 +51,12 @@
     }
 
     .hero {
-      padding-bottom: 100px;
+      padding-bottom: 50px;
     }
 
     h1 {
       font-size: 8rem;
+      margin-top: 50px;
       margin-bottom: 0;
 
       span {
@@ -77,8 +72,13 @@
       margin-bottom: 50px;
     }
 
+    h2 {
+      margin-bottom: 0;
+    }
+
     p {
-      max-width: 650px;
+      line-height: 1.5;
+      max-width: 620px;
     }
 
     .styled {
@@ -86,24 +86,6 @@
       text-transform: uppercase;
       font-size: 1.2rem;
       font-weight: 300;
-    }
-
-    .scroll-prompt {
-      display: flex;
-      align-items: center;
-      column-gap: 10px;
-      position: fixed;
-      bottom: 100px;
-      left: 0;
-      right: 0;
-      font-family: mostra-nuova, sans-serif;
-      font-size: 1rem;
-      text-align: center;
-      text-transform: uppercase;
-      color: #fff;
-      width: max-content;
-      margin: auto;
-      font-weight: 500;
     }
 
     .cta, .cta a, .cta a span {
@@ -117,7 +99,7 @@
       text-decoration: none;
       font-size: 2rem;
       font-weight: bold;
-      margin-top: 100px;
+      margin-top: 80px;
       border-radius: 5px;
       position: relative;
     }
