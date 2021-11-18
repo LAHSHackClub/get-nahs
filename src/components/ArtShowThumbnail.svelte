@@ -62,5 +62,14 @@
         font-size: 1.4rem;
       }
     }
+
+    @media (max-width: 768px) {
+      width: 220px;
+
+      span {
+        height: 250px;
+        min-height: 250px;
+      }
+    }
   }
 </style>
