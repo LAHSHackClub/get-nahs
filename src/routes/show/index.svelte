@@ -98,6 +98,10 @@
       text-transform: uppercase;
       font-size: 1.2rem;
       font-weight: 300;
+
+      @media (max-width: 1300px) {
+        font-size: 1rem;
+      }
     }
 
 
