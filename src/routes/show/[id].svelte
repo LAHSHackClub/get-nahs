@@ -32,7 +32,7 @@
   let autoplay = false;
   const int = setInterval(() => {
     if (autoplay) id = (id + 1) % totalCount;
-  }, 8000);
+  }, 4000);
   onDestroy(() => clearInterval(int));
 </script>
 
