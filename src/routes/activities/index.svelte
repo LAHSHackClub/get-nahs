@@ -19,9 +19,7 @@
 
 <Content>
   <section class="container-wide activities">
-    <h1>Calendar & Events</h1>
-    <h2>Upcoming Events</h2>
-    <h2>Club Meetings</h2>
+    <h1>NAHS Activities</h1>
   </section>
 </Content>
 
