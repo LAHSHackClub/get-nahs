@@ -9,7 +9,7 @@
 
 <a href="/show/{id}">
   <figure class="thumbnail">
-    <span><img src="{item["Artwork (File)"][0].url}" alt="{studentName}'s Artwork" /></span>
+    <span><img src="{item["Artwork (File)"][0].icon}" alt="{studentName}'s Artwork" /></span>
     <figcaption>
       <b>{studentName}</b><br>{studentGrade}th Grade<br>
     </figcaption>
