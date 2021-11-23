@@ -22,7 +22,6 @@
   }
   
   figure {
-    background-color: #f5f5f5;
     border: 1px solid #333;
     border-radius: 5px;
     display: flex;
