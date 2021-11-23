@@ -43,7 +43,7 @@
     }
 
     img {
-      max-height: 100%;
+      max-height: 300px;
       max-width: 100%;
     }
 
@@ -68,6 +68,10 @@
       span {
         height: 250px;
         min-height: 250px;
+      }
+
+      img {
+        max-height: 250px;
       }
     }
   }
