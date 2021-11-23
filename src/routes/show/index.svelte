@@ -1,27 +1,47 @@
 
+<script lang="ts" context="module">
+  export async function load({ page, fetch }) {
+		const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
+		const res = await fetch(url);
+    const j = (await res.json())
+      .sort((a, b) => (a["Art Class"].name > b["Art Class"].name) ? 1 : ((a["Art Class"].name > b["Art Class"].name) ? -1 : 0))
+      .sort((a, b) => (a["Student Name"][0].content > b["Student Name"][0].content) ? 1 : ((a["Student Name"][0].content > b["Student Name"][0].content) ? -1 : 0));
+
+		if (res.ok) return {
+      props: {
+        id: parseInt(page.params.id),
+        items: j,
+        totalCount: j.length,
+        uniqueClasses: j.map(i => i["Art Class"].name).filter((v, i, a) => a.indexOf(v) === i).sort(),
+        uniqueStudentCount: j.map(i => i["Student Name"][0].content).filter((v, i, a) => a.indexOf(v) === i).length,
+      }
+    };
+
+		return {
+			status: res.status,
+			error: new Error(`Could not load ${url}`)
+		};
+	}
+</script>
+
 <script lang="ts">
   import ArtShowCTA from '../../components/ArtShowCTA.svelte';
   import ArtShowThumbnail from '../../components/ArtShowThumbnail.svelte';
   import Content from '../../lib/Content.svelte';
-  import { onMount } from 'svelte';
 
-  let items = [];
-  let uniqueClasses = [];
-  onMount(async () => {
-    items = await (await fetch("https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json")).json();
-    const classes = items.map(i => i["Art Class"].name);
-    uniqueClasses = classes.filter((i, index, s) => s.indexOf(i) === index);
-    uniqueClasses.sort();
-  });
+  export let items = [];
+  export let uniqueClasses = [];
+  export let uniqueStudentCount = 100;
+  export let totalCount = 150;
 </script>
 
 <Content>
   <section class="show">
     <div class="container-wide hero">
       <div class="flex">
-        <h1><span>2021</span> Art Show</h1>
+        <h1><span>2021 Fall</span><br><span class="filler">LAHS </span>Art Show</h1>
         <h3 class="styled">Presented by <b>National Art Honors Society</b></h3>
-        <p>The 2021 Art Show highlights the talent of LAHS. Students submit artworks from a variety of disciplines, mediums, and class levels. Click or tap on any artwork to enter the gallery view, and scroll to navigate.</p>
+        <p>The 2021 Fall Student Art Show highlights the talent of {uniqueStudentCount} students, submitting {totalCount} artworks from a variety of disciplines, mediums, and levels. Click or tap on any artwork to enter a detailed gallery view.</p>
       </div>
       <ArtShowCTA />
     </div>
@@ -65,15 +85,24 @@
       margin-top: 50px;
       margin-bottom: 20px;
 
-      @media (max-width: 1300px) {
-        font-size: 5rem;
-      }
-
-      span {
+      span:not(.filler) {
         background-image: linear-gradient(45deg, #f09, #c0f, #0af, #0fa);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-size: 5rem;
+      }
+
+      @media (max-width: 1300px) {
+        font-size: 6rem;
+
+        span:not(.filler) {
+          font-size: 4rem;
+        }
+
+        .filler {
+          display: none;
+        }
       }
     }
 

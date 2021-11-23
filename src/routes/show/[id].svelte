@@ -3,7 +3,9 @@
   export async function load({ page, fetch }) {
 		const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
 		const res = await fetch(url);
-    const j = await res.json();
+    const j = (await res.json())
+      .sort((a, b) => (a["Art Class"].name > b["Art Class"].name) ? 1 : ((a["Art Class"].name > b["Art Class"].name) ? -1 : 0))
+      .sort((a, b) => (a["Student Name"][0].content > b["Student Name"][0].content) ? 1 : ((a["Student Name"][0].content > b["Student Name"][0].content) ? -1 : 0));
 
 		if (res.ok) return {
       props: {
