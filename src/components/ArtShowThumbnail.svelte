@@ -40,6 +40,7 @@
       justify-content: center;
       height: 300px;
       min-height: 300px;
+      user-select: none;
     }
 
     img {

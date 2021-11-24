@@ -59,6 +59,11 @@
 </Content>
 
 <style lang="scss">
+  :global ::selection {
+    background-color: #0af3;
+    color: #caf;
+  }
+  
   .show {
     background-color: #000;
     color: #fff;

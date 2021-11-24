@@ -142,5 +142,22 @@
         }
       }
     }
+
+    @media (max-width: 768px) {
+      height: 100vh;
+      flex-direction: column;
+
+      img {
+        max-height: calc(100vh - 300px);
+        max-width: 100%;
+      }
+
+      .desc {
+        box-sizing: border-box;
+        height: 300px;
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
   }
 </style>
