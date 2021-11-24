@@ -15,7 +15,6 @@
     <section class="flex">
       <h3>Club</h3>
       <p><a href="/show">Art Show</a></p>
-      <p><a href="/calendar">Calendar</a></p>
       <p><a href="/contact">Contact</a></p>
       <p><a href="/join">Join NAHS</a></p>
     </section>

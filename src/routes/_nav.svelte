@@ -10,8 +10,8 @@
       <span>LAHS x NAHS</span>
     </h2></a>
     <span class="flex"></span>
+    <a href="/">Home</a>
     <a href="/activities">Activities</a>
-    <a href="/calendar">Calendar</a>
     <a href="/contact">Contact</a>
     <a href="/join">Join NAHS</a>
     <a class="focus" href="/show">Art Show</a>

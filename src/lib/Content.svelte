@@ -5,8 +5,15 @@
 
 <style lang="scss">
   .content :global {
+    line-height: 1.5;
+
     h1 {
       font-size: 5rem;
+
+      @media (max-width: 768px) {
+        font-size: 3.5rem;
+        text-decoration: underline;
+      }
     }
 
     h2 {
