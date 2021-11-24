@@ -36,11 +36,33 @@
     if (autoplay) id = (id + 1) % totalCount;
   }, 4000);
   onDestroy(() => clearInterval(int));
+
+  let isFS = false;
+  function requestFullScreen() {
+    const element: any = document.querySelector(".gallery-item");
+    // Supports most browsers and their versions.
+    var requestMethod =
+      element.requestFullscreen ||
+      element.webkitRequestFullscreen ||
+      element.mozRequestFullScreen ||
+      element.msRequestFullscreen;
+
+    if (requestMethod && !isFS) {
+      requestMethod.call(element);
+      isFS = true;
+    }
+    else {
+      document.exitFullscreen();
+      isFS = false;
+    }
+  }
 </script>
 
 <section class="gallery">
   <div class="gallery-item">
-    <img on:click="{()=>{id=(id+1)%totalCount}}" src="{items[id]["Artwork (File)"][0].url}" alt="">
+    <object title="{items[id]["Student Name"][0].content}'s Artwork">
+      <img on:click="{()=>{id=(id+1)%totalCount}}" src="{items[id]["Artwork (File)"][0].url}" alt="">
+    </object>
     <div class="desc flex-column">
       <h1><a href="/show">&lt; 2021 Art Show</a></h1>
       <h2>{studentName}</h2>
@@ -48,6 +70,7 @@
       <span class="spacer"></span>
       <p class="caption">{id+1}/{totalCount}</p>
       <div class="controls flex-row justify-end">
+        <button class:active="{isFS}" on:click="{requestFullScreen}" title="Fullscreen">F</button>
         <button class:active="{autoplay}" on:click="{()=>{autoplay=!autoplay}}" title="Autoplay">P</button>
         {#if !(id <= 0)}
           <button on:click="{()=>{id-=1}}" class="button" title="Back">&lt;</button>
@@ -77,12 +100,19 @@
 
     font-size: 1.4em;
 
-    img {
+    object {
       cursor: pointer;
       flex: 1 1;
       max-width: calc(100vw - 280px);
       max-height: 100vh;
       object-fit: contain;
+    }
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      max-height: 100vh;
     }
 
     .desc {
@@ -137,7 +167,7 @@
         }
 
         &.active {
-          background-color: #f44;
+          border: 2px solid #aaa;
           color: #fff;
         }
       }
@@ -147,7 +177,7 @@
       height: 100vh;
       flex-direction: column;
 
-      img {
+      object {
         max-height: calc(100vh - 300px);
         max-width: 100%;
       }
