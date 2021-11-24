@@ -1,32 +1,7 @@
 
 <div class="cta"><a href="/show/0"><span>View Gallery &gt;</span></a></div>
-<div class="cta-mobile"><a href="/show/0">View Gallery &gt;</a></div>
 
 <style lang="scss">
-  .cta-mobile {
-    display: none;
-
-    a {
-      background-image: linear-gradient(45deg, #f09, #c0f, #0af, #0fa);
-      background-repeat: repeat;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      font-size: 2rem;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .cta {
-      display: none !important;
-    }
-    .cta-mobile {
-      display: grid;
-      place-items: center;
-    }
-  }
-
   .cta, .cta a, .cta a span {
     display: grid;
     place-items: center;
@@ -70,6 +45,39 @@
     a:hover::before, a:hover::after {
       background-position-x: 0px;
       background-position-y: 0px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .cta {
+      padding: 0;
+
+      a {
+        margin-top: 0;
+      }
+      a span {
+        width: 250px;
+        height: 100px;
+      }
+      a::before, a::after {
+        animation: swipe-top 2s ease-in-out infinite;
+        width: 230px;
+        height: 110px;
+        background-position-y: 70px;
+      }
+      a::before {
+        animation: swipe-top 2s reverse ease-in-out infinite;
+        background-position-y: -70px;
+      }
+    }
+
+    @keyframes swipe-top {
+      0% {
+        background-position-x: 300px;
+      }
+      100% {
+        background-position-x: -300px;
+      }
     }
   }
 </style>

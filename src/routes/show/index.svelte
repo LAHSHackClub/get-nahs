@@ -39,17 +39,15 @@
   <section class="show">
     <div class="container-wide hero">
       <div class="flex">
-        <h1><span>2021 Fall</span><br><span class="filler">LAHS </span>Art Show</h1>
-        <h3 class="styled">Presented by <b>National Art Honors Society</b></h3>
-        <p>The 2021 Fall Student Art Show highlights the talent of {uniqueStudentCount} students, submitting {totalCount} artworks from a variety of disciplines, mediums, and levels. Click or tap on any artwork to enter a detailed gallery view.</p>
+        <h1>2021 Fall <span>Art Show</span></h1>
+        <h3 class="styled">Presented by National Art Honors Society</h3>
+        <p>The 2021 Fall Student Art Show highlights the talent of {uniqueStudentCount} students, who submit {totalCount} artworks from a variety of disciplines, mediums, and levels.</p>
       </div>
       <ArtShowCTA />
     </div>
     {#each uniqueClasses as c}
-      <div class="container-wide">
-        <h2>{c}</h2>
-      </div>
-      <div class="container-wide flex-row flex-wrap">
+      <h2 class="container-wide">{c}</h2>
+      <div class="container-wide flex-row flex-wrap artworks">
         {#each items.filter(i => i["Art Class"].name === c) as item}
           <ArtShowThumbnail item="{item}" id="{items.indexOf(item)}" />
         {/each}
@@ -86,8 +84,8 @@
 
     h1 {
       line-height: 0.9;
-      font-size: 8rem;
-      margin-top: 50px;
+      font-size: 6rem;
+      margin-top: 90px;
       margin-bottom: 20px;
 
       span:not(.filler) {
@@ -95,18 +93,25 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 5rem;
+        white-space: nowrap;
       }
 
       @media (max-width: 1300px) {
-        font-size: 6rem;
+        font-size: 4rem;
 
         span:not(.filler) {
-          font-size: 4rem;
+          font-size: 8rem;
         }
 
         .filler {
           display: none;
+        }
+      }
+
+      @media (max-width: 992px) {
+        font-size: 5rem;
+        span:not(.filler) {
+          font-size: 5rem;
         }
       }
     }
@@ -134,6 +139,15 @@
       @media (max-width: 1300px) {
         font-size: 1rem;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      text-align: center;
+    }
+    .artworks {
+      justify-content: center;
     }
   }
 </style>
