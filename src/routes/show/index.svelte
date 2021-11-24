@@ -88,7 +88,7 @@
       margin-top: 90px;
       margin-bottom: 20px;
 
-      span:not(.filler) {
+      span {
         background-image: linear-gradient(45deg, #f09, #c0f, #0af, #0fa);
         background-clip: text;
         -webkit-background-clip: text;
@@ -99,18 +99,15 @@
       @media (max-width: 1300px) {
         font-size: 4rem;
 
-        span:not(.filler) {
+        span {
           font-size: 8rem;
-        }
-
-        .filler {
-          display: none;
         }
       }
 
       @media (max-width: 992px) {
         font-size: 5rem;
-        span:not(.filler) {
+
+        span {
           font-size: 5rem;
         }
       }
