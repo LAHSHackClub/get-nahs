@@ -4,6 +4,9 @@
   import Footer from "../_footer.svelte";
 </script>
 
+<svelte:head>
+  <meta name="theme-color" content="#000000">
+</svelte:head>
 <main>
   <Nav />
   <div class="content">
@@ -18,15 +21,13 @@
   }
 
   main {
-    background-color: #707;
-    min-height: 100vh;
+    background-color: #000;
     font-family: serenity, sans-serif;
     position: relative;
   }
 
   .content {
     background-color: #fff;
-    min-height: 30vh;
   }
 
   h1, h2, h3, h4, a {
