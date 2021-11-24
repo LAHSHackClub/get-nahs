@@ -68,7 +68,7 @@
 
     .hero-content {
       position: relative;
-      top: 15%;
+      top: 50px;
       left: 0;
       right: 0;
 

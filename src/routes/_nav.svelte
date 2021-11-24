@@ -1,6 +1,6 @@
 
 <script lang="ts">
-
+  import NavPrompter from "../components/NavPrompter.svelte";
 </script>
 
 <header>
@@ -9,48 +9,68 @@
       <img src="/img/logo.png" alt="NAHS">
       <span>LAHS x NAHS</span>
     </h2></a>
-    <span class="spacer"></span>
+    <span class="flex"></span>
     <a href="/activities">Activities</a>
     <a href="/calendar">Calendar</a>
     <a href="/contact">Contact</a>
     <a href="/join">Join NAHS</a>
     <a class="focus" href="/show">Art Show</a>
   </nav>
+  <NavPrompter />
 </header>
 
 <style lang="scss">
   header {
-    background-color: #a0a;
+    background-color: #505;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    z-index: 2;
+
+    @media (min-width: 992px) {
+      background-color: #a0a;
+    }
   }
 
   nav {
     display: flex;
+    flex-direction: column;
     align-items: center;
     column-gap: 15px;
+    row-gap: 10px;
+    width: 180px;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
     height: 50px;
-  }
-
-  h2 {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    column-gap: 15px;
-
-    img {
-      height: 38px;
+      width: unset;
     }
-  }
-
-  .spacer {
-    flex: 1;
   }
 
   .brand {
     border-radius: 5px;
   }
-
   .brand h2 {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    column-gap: 15px;
+    row-gap: 10px;
     margin: 4px 10px;
+    white-space: nowrap;
+
+    img {
+      height: 64px;
+    }
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+
+      img {
+        height: 38px;
+      }
+    }
   }
 
   a {
@@ -58,11 +78,17 @@
   }
 
   a:not(.brand) {
-    background-color: #707;
+    background-color: #808;
     border-radius: 5px;
     color: #fff;
 
-    padding: 8px 20px;
+    padding: 12px 20px;
+    width: 130px;
+
+    @media (min-width: 992px) {
+      padding: 10px 20px;
+      width: unset;
+    }
   }
 
   a.focus {
