@@ -4,8 +4,11 @@
 		const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
 		const res = await fetch(url);
     const j = (await res.json())
-      .sort((a, b) => (a["Art Class"].name > b["Art Class"].name) ? 1 : ((a["Art Class"].name > b["Art Class"].name) ? -1 : 0))
-      .sort((a, b) => (a["Student Name"][0].content > b["Student Name"][0].content) ? 1 : ((a["Student Name"][0].content > b["Student Name"][0].content) ? -1 : 0));
+      .sort((a, b) => {
+        if (a["Art Class"].name == b["Art Class"].name)
+          return (a["Student Name"][0].content > b["Student Name"][0].content) ? 1 : -1;
+        else return (a["Art Class"].name > b["Art Class"].name) ? 1 : -1;
+      });
 
 		if (res.ok) return {
       props: {
