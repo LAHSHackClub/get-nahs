@@ -3,15 +3,15 @@
   export let item: any = {};
   export let id: number = 0;
   $: studentName = item["Student Name"][0].content;
-  $: studentClass = item["Art Class"].name;
-  $: studentGrade = item["Grade Level"].name;
+  $: studentGrade = item["Grade Level"].name === 'Class' ?
+    item["Grade Level"].name : `${item["Grade Level"].name}th Grade`;
 </script>
 
 <a href="/show/{id}">
   <figure class="thumbnail">
     <span><img src="{item["Artwork (File)"][0].icon}" alt="{studentName}'s Artwork" /></span>
     <figcaption>
-      <b>{studentName}</b><br>{studentGrade}th Grade<br>
+      <b>{studentName}</b><br>{studentGrade}<br>
     </figcaption>
   </figure>
 </a>
