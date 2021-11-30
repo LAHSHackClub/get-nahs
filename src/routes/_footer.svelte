@@ -8,9 +8,6 @@
     <section class="flex">
       <h3>Activities</h3>
       <p><a href="/activities">All Activities</a></p>
-      <p><a href="">Bear Paintings</a></p>
-      <p><a href="">Memory Project</a></p>
-      <p><a href="">Video Tutorials</a></p>
     </section>
     <section class="flex">
       <h3>Club</h3>
