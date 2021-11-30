@@ -90,6 +90,7 @@
       font-size: 6rem;
       margin-top: 90px;
       margin-bottom: 20px;
+      text-decoration: none;
 
       span {
         background-image: linear-gradient(45deg, #f09, #c0f, #0af, #0fa);
@@ -117,7 +118,14 @@
     }
 
     h2 {
+      background-color: #000;
       margin-bottom: 0;
+      position: sticky;
+      top: 0;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
     }
 
     h3 {
