@@ -1,5 +1,5 @@
 
-FROM node:16
+FROM amd64/node:16
 
 # Create app directory
 WORKDIR /app
