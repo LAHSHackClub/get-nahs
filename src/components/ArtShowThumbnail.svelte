@@ -2,9 +2,8 @@
 <script lang="ts">
   export let item: any = {};
   export let id: number = 0;
-  $: studentName = item["Student Name"][0].content;
-  $: studentGrade = item["Grade Level"].name === 'Class' ?
-    item["Grade Level"].name : `${item["Grade Level"].name}th Grade`;
+  $: studentName = item["Student Name"];
+  $: studentGrade = `${item["Grade Level"].name}th Grade`;
 </script>
 
 <a href="/show/{id}">

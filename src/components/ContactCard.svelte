@@ -4,7 +4,7 @@
 </script>
 
 <div class="contact-card" data-role="{contact.Role.name}">
-  <h4>{contact.Name[0].content} · {contact.Role.name}</h4>
+  <h4>{contact.Name} · {contact.Role.name}</h4>
   <p>{contact.Email.email}</p>
 </div>
 

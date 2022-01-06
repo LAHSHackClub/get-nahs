@@ -7,7 +7,7 @@
 		const activities = (await res.json())
 		const topLevelActivities = activities
 			.filter((a: any) => a.Parent.name === "True")
-			.sort((a: any, b: any) => a.Name[0].content.localeCompare(b.Name[0].content));
+			.sort((a: any, b: any) => a.Name.localeCompare(b.Name));
 		const subActivities = activities
 			.filter((a: any) => a.Parent.name !== "True");
 
@@ -36,8 +36,8 @@
 		<div>
 			{#each activities as activity}
 				<div class="activity">
-					<h2>{activity.Name[0].content}</h2>
-					<p>{activity.Description[0]?.content ?? ""}</p>
+					<h2>{activity.Name}</h2>
+					<p>{activity.Description}</p>
 					<div class="flex-row flex-gap overflow">
 						{#each activity.Media as media}
 						{#if media.type === "external"}
@@ -53,7 +53,7 @@
 						{/each}
 					</div>
 					{#each activity.Relation as saID}
-					<h3>{(subActivities.filter(s => s.id === saID.id))[0].Name[0].content}</h3>
+					<h3>{(subActivities.filter(s => s.id === saID.id))[0].Name}</h3>
 					<div class="flex-row flex-gap overflow">
 						{#each (subActivities.filter(s => s.id === saID.id))[0].Media as sMedia}
 							<div>

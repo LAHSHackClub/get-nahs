@@ -6,7 +6,7 @@
     const j = (await res.json())
       .sort((a, b) => {
         if (a["Art Class"].name == b["Art Class"].name)
-          return (a["Student Name"][0].content > b["Student Name"][0].content) ? 1 : -1;
+          return (a["Student Name"] > b["Student Name"]) ? 1 : -1;
         else return (a["Art Class"].name > b["Art Class"].name) ? 1 : -1;
       });
 
@@ -16,7 +16,7 @@
         items: j,
         totalCount: j.length,
         uniqueClasses: j.map(i => i["Art Class"].name).filter((v, i, a) => a.indexOf(v) === i).sort(),
-        uniqueStudentCount: j.map(i => i["Student Name"][0].content).filter((v, i, a) => a.indexOf(v) === i).length,
+        uniqueStudentCount: j.map(i => i["Student Name"]).filter((v, i, a) => a.indexOf(v) === i).length,
       }
     };
 

@@ -6,7 +6,7 @@
     const j = (await res.json())
       .sort((a, b) => {
         if (a["Art Class"].name == b["Art Class"].name)
-          return (a["Student Name"][0].content > b["Student Name"][0].content) ? 1 : -1;
+          return (a["Student Name"] > b["Student Name"]) ? 1 : -1;
         else return (a["Art Class"].name > b["Art Class"].name) ? 1 : -1;
       });
 
@@ -30,7 +30,7 @@
   export let id: number;
   export let totalCount: number;
   export let items = [];
-  $: studentName = items[id]["Student Name"][0].content;
+  $: studentName = items[id]["Student Name"];
   $: studentClass = items[id]["Art Class"].name;
   $: studentGrade = items[id]["Grade Level"].name;
 
@@ -63,7 +63,7 @@
 
 <section class="gallery">
   <div class="gallery-item">
-    <object title="{items[id]["Student Name"][0].content}'s Artwork">
+    <object title="{items[id]["Student Name"]}'s Artwork">
       <img on:click="{()=>{id=(id+1)%totalCount}}" src="{items[id]["Artwork (File)"][0].url}" alt="">
     </object>
     <div class="desc flex-column">
