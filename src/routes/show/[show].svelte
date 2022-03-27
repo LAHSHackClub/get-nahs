@@ -1,7 +1,7 @@
 
 <script lang="ts" context="module">
   export async function load({ page, fetch }) {
-		const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
+		const url = `https://db.lahs.club/cache/${page.params.show}.json`;
 		const res = await fetch(url);
     const j = (await res.json())
       .sort((a, b) => {
@@ -12,7 +12,6 @@
 
 		if (res.ok) return {
       props: {
-        id: parseInt(page.params.id),
         items: j,
         totalCount: j.length,
         uniqueClasses: j.map(i => i["Art Class"].name).filter((v, i, a) => a.indexOf(v) === i).sort(),
