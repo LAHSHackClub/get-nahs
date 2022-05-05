@@ -22,7 +22,7 @@
     </section>
   </div>
   <div class="container-wide">
-    <p><b>&copy; 2021 LAHS National Art Honors Society</b></p>
+    <p><b>&copy; LAHS National Art Honors Society</b></p>
     <p><a href="https://get.lahs.club" target="_blank">&lt;&gt; with &lt;3 by LAHS Hack Club // LAHS GET</a></p>
   </div>
 </footer>

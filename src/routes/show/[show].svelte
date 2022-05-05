@@ -1,8 +1,20 @@
 
 <script lang="ts" context="module">
-  export async function load({ page, fetch }) {
-		const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
-		const res = await fetch(url);
+  export async function load({ params, fetch }) {
+    // Convert URL shorthand to show data from Notion
+    const meta = await fetch(`https://db.lahs.club/cache/761269d6997543f5a1b86c0bd17e9ef3.json`)
+      .then((res: any) => res.json()) as any[];
+    const selectedShow = meta.find(m => m.Short == params.show);
+
+    // If page is unpublished, do not serve
+    if (selectedShow.Enabled.name == "False")
+      return { status: 401, error: new Error("You are unauthorized!") };
+    // If page has bad formatting, do not serve
+    if (selectedShow.Validity == false)
+      return { status: 500, error: new Error("Invalid page settings!") };
+
+    // Fetch show database
+		const res = await fetch(`https://db.lahs.club/cache/${selectedShow.ID}.json`);
     const j = (await res.json())
       .sort((a, b) => {
         if (a["Art Class"].name == b["Art Class"].name)
@@ -12,7 +24,8 @@
 
 		if (res.ok) return {
       props: {
-        id: parseInt(page.params.id),
+        show: selectedShow.Short,
+        title: selectedShow["Page Name"],
         items: j,
         totalCount: j.length,
         uniqueClasses: j.map(i => i["Art Class"].name).filter((v, i, a) => a.indexOf(v) === i).sort(),
@@ -22,7 +35,7 @@
 
 		return {
 			status: res.status,
-			error: new Error(`Could not load ${url}`)
+			error: new Error(`Could not load show.`)
 		};
 	}
 </script>
@@ -32,6 +45,8 @@
   import ArtShowThumbnail from '../../components/ArtShowThumbnail.svelte';
   import Content from '../../lib/Content.svelte';
 
+  export let show: string;
+  export let title: string;
   export let items = [];
   export let uniqueClasses = [];
   export let uniqueStudentCount = 100;
@@ -42,17 +57,17 @@
   <section class="show">
     <div class="container-wide hero">
       <div class="flex">
-        <h1>2021 Fall <span>Art Show</span></h1>
+        <h1>{title} <span>Art Show</span></h1>
         <h3 class="styled">Presented by National Art Honors Society</h3>
-        <p>The 2021 Fall Student Art Show highlights the talent of {uniqueStudentCount} students, who submit {totalCount} artworks from a variety of disciplines, mediums, and levels.</p>
+        <p>The {title} Student Art Show highlights the talent of {uniqueStudentCount} students, who submit {totalCount} artworks from a variety of disciplines, mediums, and levels.</p>
       </div>
-      <ArtShowCTA />
+      <ArtShowCTA show={show} />
     </div>
     {#each uniqueClasses as c}
       <h2 class="container-wide">{c}</h2>
       <div class="container-wide flex-row flex-wrap artworks">
         {#each items.filter(i => i["Art Class"].name === c) as item}
-          <ArtShowThumbnail item="{item}" id="{items.indexOf(item)}" />
+          <ArtShowThumbnail show={show} item={item} id={items.indexOf(item)} />
         {/each}
       </div>
     {/each}

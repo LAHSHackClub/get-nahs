@@ -1,5 +1,9 @@
 
-<div class="cta"><a href="/show/0"><span>View Gallery &gt;</span></a></div>
+<script lang="ts">
+  export let show: string;
+</script>
+
+<div class="cta"><a href="/show/{show}-0"><span>View Gallery &gt;</span></a></div>
 
 <style lang="scss">
   .cta, .cta a, .cta a span {
