@@ -1,8 +1,20 @@
 
 <script lang="ts" context="module">
-  export async function load({ page, fetch }) {
-		const url = `https://db.lahs.club/cache/814bc6c60d0a4e13bc3f8bf33c8a3117.json`;
-		const res = await fetch(url);
+  export async function load({ params, fetch }) {
+    // Convert URL shorthand to show data from Notion
+    const meta = await fetch(`https://db.lahs.club/cache/761269d6997543f5a1b86c0bd17e9ef3.json`)
+      .then((res: any) => res.json()) as any[];
+    const selectedShow = meta.find(m => m.Short == params.show);
+
+    // If page is unpublished, do not serve
+    if (selectedShow.Enabled.name == "False")
+      return { status: 401, error: new Error("You are unauthorized!") };
+    // If page has bad formatting, do not serve
+    if (selectedShow.Validity == false)
+      return { status: 500, error: new Error("Invalid page settings!") };
+
+    // Fetch show database
+		const res = await fetch(`https://db.lahs.club/cache/${selectedShow.ID}.json`);
     const j = (await res.json())
       .sort((a, b) => {
         if (a["Art Class"].name == b["Art Class"].name)
@@ -12,7 +24,9 @@
 
 		if (res.ok) return {
       props: {
-        id: parseInt(page.params.id),
+        show: selectedShow.Short,
+        title: selectedShow["Page Name"],
+        id: parseInt(params.id),
         items: j,
         totalCount: j.length
       }
@@ -20,13 +34,16 @@
 
 		return {
 			status: res.status,
-			error: new Error(`Could not load ${url}`)
+			error: new Error(`Could not load image!`)
 		};
 	}
 </script>
 
 <script lang="ts">
   import { onDestroy } from 'svelte';
+  export let show: string;
+  export let title: string;
+
   export let id: number;
   export let totalCount: number;
   export let items = [];
@@ -67,7 +84,7 @@
       <img on:click="{()=>{id=(id+1)%totalCount}}" src="{items[id]["Artwork (File)"][0].url}" alt="">
     </object>
     <div class="desc flex-column">
-      <h1><a href="/show">&lt; 2021 Art Show</a></h1>
+      <h1><a href="/show/{show}">&lt; {title} Art Show</a></h1>
       <h2>{studentName}</h2>
       <p>{studentClass}<br>{studentGrade}th Grade</p>
       <span class="spacer"></span>
