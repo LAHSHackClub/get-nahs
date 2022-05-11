@@ -6,10 +6,10 @@
 		const ok = res.ok;
 		const activities = (await res.json())
 		const topLevelActivities = activities
-			.filter((a: any) => a.Parent.name === "True")
+			.filter((a: any) => a.Parent?.name === "True")
 			.sort((a: any, b: any) => a.Name.localeCompare(b.Name));
 		const subActivities = activities
-			.filter((a: any) => a.Parent.name !== "True");
+			.filter((a: any) => a.Parent?.name !== "True");
 
 		if (ok) return { props: {
 			activities: topLevelActivities,
