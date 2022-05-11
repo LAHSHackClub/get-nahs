@@ -5,7 +5,9 @@
 
 <div class="contact-card" data-role="{contact.Role.name}">
   <h4>{contact.Name} · {contact.Role.name}</h4>
+  {#if contact.Email.email}
   <p>{contact.Email.email}</p>
+  {/if}
 </div>
 
 <style lang="scss">

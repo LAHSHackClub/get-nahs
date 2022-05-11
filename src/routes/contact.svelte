@@ -21,7 +21,7 @@
   const advisorContact = {
     "Email":{"email":"christine.an@mvla.net"},
     "Role":{"name":"Teacher Advisor"},
-    "Name":[{"content":"Christine An","link":null,"type":"text"}]
+    "Name":"Christine An"
   }
 </script>
 
