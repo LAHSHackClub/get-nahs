@@ -28,7 +28,7 @@
         title: selectedShow["Page Name"],
         items: j,
         totalCount: j.length,
-        uniqueClasses: j.map(i => i["Art Class"].name).filter((v, i, a) => a.indexOf(v) === i).sort(),
+        uniqueClasses: j.map(i => i["Art Class"].name).filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => { if (a === "Award Winner") return -1; if (b === "Award Winner") return 1; return a > b ? 1 : -1; }), // excellent oneliner here
         uniqueStudentCount: j.map(i => i["Student Name"]).filter((v, i, a) => a.indexOf(v) === i).length,
       }
     };
@@ -133,8 +133,11 @@
     }
 
     h2 {
-      background-color: #000;
+      background-color: #000a;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
       margin-bottom: 0;
+      padding: 0;
       position: sticky;
       top: 0;
 

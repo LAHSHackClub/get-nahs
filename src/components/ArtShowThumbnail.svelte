@@ -3,15 +3,20 @@
   export let item: any = {};
   export let show: string = "";
   export let id: number = 0;
-  $: studentName = item["Student Name"];
-  $: studentGrade = `${item["Grade Level"].name}th Grade`;
+  $: studentName = item["Student Name"].match(/^(.*?)\(/)?.[1] || item["Student Name"];
+  $: artTitle = item["Student Name"].match(/^(.*?)\((.*?)\)/)?.[2] || null;
+  $: studentGrade = `${item["Grade Level"].name}${["9", "10", "11", "12"].find(i => i === item["Grade Level"].name) ? "th Grade" : ""}`;
 </script>
 
 <a href="/show/{show}-{id}">
   <figure class="thumbnail">
     <span><img src="{item["Artwork (File)"][0].icon}" alt="{studentName}'s Artwork" /></span>
     <figcaption>
-      <b>{studentName}</b><br>{studentGrade}<br>
+      <b>{studentName}</b><br>
+      {#if artTitle}
+      <em>{artTitle}</em><br>
+      {/if}
+      {studentGrade}<br>
     </figcaption>
   </figure>
 </a>

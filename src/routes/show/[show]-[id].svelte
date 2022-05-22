@@ -47,9 +47,10 @@
   export let id: number;
   export let totalCount: number;
   export let items = [];
-  $: studentName = items[id]["Student Name"];
+  $: studentName = items[id]["Student Name"].match(/^(.*?)\(/)?.[1] || items[id]["Student Name"];
+  $: artTitle = items[id]["Student Name"].match(/^(.*?)\((.*?)\)/)?.[2] || null;
   $: studentClass = items[id]["Art Class"].name;
-  $: studentGrade = items[id]["Grade Level"].name;
+  $: studentGrade = `${items[id]["Grade Level"].name}${["9", "10", "11", "12"].find(i => i === items[id]["Grade Level"].name) ? "th Grade" : ""}`;
 
   let autoplay = false;
   const int = setInterval(() => {
@@ -86,7 +87,12 @@
     <div class="desc flex-column">
       <h1><a href="/show/{show}">&lt; {title} Art Show</a></h1>
       <h2>{studentName}</h2>
-      <p>{studentClass}<br>{studentGrade}th Grade</p>
+      <p>{studentClass}<br>{studentGrade}</p>
+      {#if artTitle}
+      <br>
+      <p><b>Artwork Title:</b></p>
+      <em>{artTitle}</em>
+      {/if}
       <span class="spacer"></span>
       <p class="caption">{id+1}/{totalCount}</p>
       <div class="controls flex-row justify-end">
@@ -140,8 +146,8 @@
       border-top-left-radius: 15px;
       color: #fff;
       height: 100vh;
-      width: 200px;
-      padding: 0 40px;
+      width: 220px;
+      padding: 0 30px;
       text-align: right;
 
       h1 a {
